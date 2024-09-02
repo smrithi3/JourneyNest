@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JourneyNestapps</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Leaflet CSS for map functionality -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""
+    />
+</head>
+<body>
+    <header>
+        <img src="TravelNestLogo.png" alt="Logo" id="logo" />
+        <h1>JourneyNest</h1>
+    </header>
+
+    <main>
+        <aside class="input-section">
+            <form id="travel-form">
+                <!-- Input fields for travel information -->
+                <div class="form-group">
+                    <label for="current-location">Current Location:</label>
+                    <input type="text" id="current-location" required />
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination:</label>
+                    <input type="text" id="destination" required />
+                </div>
+                <div class="form-group">
+                    <label for="start-date">Starting Date:</label>
+                    <input type="date" id="start-date" required />
+                </div>
+                <div class="form-group">
+                    <label for="end-date">Returning Date:</label>
+                    <input type="date" id="end-date" required />
+                </div>
+                <!-- Buttons for form submission and viewing itinerary -->
+                <button type="submit">Search</button>
+                <button type="button" id="view-itinerary">View Itinerary</button>
+            </form>
+        </aside>
+
+        <section class="map-section">
+            <div id="map"></div>
+        </section>
+    </main>
+
+
+    <!-- Theme selector for changing app color scheme -->
+    <div class="theme-selector">
+        <div class="theme-circle" id="theme-blurple" title="Blurple"></div>
+        <div class="theme-circle" id="theme-red" title="Red"></div>
+        <div class="theme-circle" id="theme-green" title="Green"></div>
+        <div class="theme-circle" id="theme-yellow" title="Yellow"></div>
+    </div>
+
+    <!-- Modal for displaying travel options -->
+    <div id="optionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Travel Options</h2>
+            <!-- Container for travel option buttons -->
+            <div class="options-container">
+                <div class="option" id="flightsOption">Flights</div>
+                <div class="option" id="eventsOption">Events</div>
+                <div class="option" id="attractionsOption">Attractions</div>
+            </div>
+            <!-- Attraction filters (hidden by default) -->
+            <div id="attractionFilters" style="display: none;">
+                <button class="filter-btn" data-filter="tourist_attractions">Tourist Attractions</button>
+                <button class="filter-btn" data-filter="shopping">Malls</button>
+                <button class="filter-btn" data-filter="restaurants">Restaurants</button>
+                <button class="filter-btn" data-filter="all">All</button>
+            </div>
+            <!-- Container for displaying option content -->
+            <div id="optionContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal for displaying itinerary -->
+    <div id="itineraryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Itinerary</h2>
+            <div id="itineraryContent"></div>
+        </div>
+    </div>
+
+    <!-- Loading indicator (hidden by default) -->
+    <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Leaflet JavaScript library for map functionality -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""
+    ></script>
+    <!-- Custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

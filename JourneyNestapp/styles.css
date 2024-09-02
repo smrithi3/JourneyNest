@@ -1,0 +1,598 @@
+:root {
+    --primary-color: #00aaff;
+    --background-color: #121212;
+    --secondary-background: #1e1e1e;
+    --text-color: #ffffff;
+    --input-background: #2c2c2c;
+    --accent-color: #ff4081;
+    --success-color: #4caf50;
+    --warning-color: #ffc107;
+  }
+  
+  .theme-blurple {
+    --primary-color: #7289da;
+    --background-color: #23272a;
+    --secondary-background: #2c2f33;
+    --input-background: #424549;
+    --text-color: #ffffff;
+  }
+  
+  .theme-red {
+    --primary-color: #ff5555;
+    --background-color: #2c2f33;
+    --secondary-background: #3b3f44;
+    --input-background: #474c53;
+    --text-color: #ffffff;
+  }
+  
+  .theme-green {
+    --primary-color: #43b581;
+    --background-color: #2e3e29;
+    --secondary-background: #364a36;
+    --input-background: #40594a;
+    --text-color: #ffffff;
+  }
+  
+  .theme-yellow {
+    --primary-color: #faa61a;
+    --background-color: #333331;
+    --secondary-background: #4b4945;
+    --input-background: #59544f;
+    --text-color: #ffffff;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-size: 16px;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+  }
+  
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-background);
+    padding: 15px 40px;
+    height: 70px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 0.5s ease-in-out;
+  }
+  
+  #logo {
+    height: 50px;
+    margin-right: 20px;
+  }
+  
+  header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+  
+  main {
+    display: flex;
+    min-height: calc(100vh - 140px);
+    padding: 40px;
+    gap: 40px;
+  }
+  
+  aside.input-section {
+    width: 350px;
+    background-color: var(--secondary-background);
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeInLeft 0.5s ease-in-out;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .map-section {
+    flex-grow: 1;
+    background-color: var(--secondary-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeInRight 0.5s ease-in-out;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  #map {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--secondary-background);
+    font-size: 0.9rem;
+    color: #888;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+  }
+  
+  input {
+    width: 90%;
+    padding: 12px 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.1);
+  }
+  
+  button,
+  .option,
+  .add-to-itinerary,
+  .remove-from-itinerary {
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+  
+  button:hover,
+  .option:hover,
+  .add-to-itinerary:hover,
+  .remove-from-itinerary:hover {
+    background-color: #0088cc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 170, 255, 0.2);
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .modal-content {
+    background-color: var(--secondary-background);
+    margin: 5% auto;
+    padding: 30px;
+    border: none;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 15px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease-in-out;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .close:hover {
+    color: var(--primary-color);
+  }
+  
+  .options-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+  
+  #optionContent {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 15px;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--secondary-background);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0088cc;
+  }
+  
+  .flight-box,
+  .event-box,
+  .attraction-box,
+  .hotel-box,
+  .itinerary-item {
+    background-color: var(--input-background);
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .flight-box:hover,
+  .event-box:hover,
+  .attraction-box:hover,
+  .hotel-box:hover,
+  .itinerary-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  #view-itinerary {
+    margin-left: 15px;
+  }
+  
+  #attractionFilters {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-btn:hover,
+  .filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }
+  
+  .remove-from-itinerary {
+    background-color: var(--accent-color);
+    margin-top: 15px;
+  }
+  
+  .remove-from-itinerary:hover {
+    background-color: #e91e63;
+  }
+  
+  .notification {
+    position: fixed;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    transition: bottom 0.3s ease-in-out;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .notification.show {
+    bottom: 30px;
+  }
+  
+  .itinerary-date-group {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+  }
+  
+  .itinerary-date-group h3 {
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+  
+  .itinerary-item input {
+    background-color: var(--input-background);
+    color: white;
+    border: 1px solid #555;
+    padding: 8px 12px;
+    border-radius: 5px;
+    width: auto;
+    font-size: 0.95rem;
+  }
+  
+  .itinerary-item input[type="number"] {
+    width: 60px;
+  }
+  
+  .calendar-view {
+    border: 1px solid #444;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .hour-block {
+    display: flex;
+    border-bottom: 1px solid #444;
+    height: 60px;
+    position: relative;
+  }
+  
+  .hour-label {
+    width: 60px;
+    padding: 5px;
+    background-color: var(--secondary-background);
+    border-right: 1px solid #444;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hour-content {
+    flex-grow: 1;
+    position: relative;
+    overflow: visible;
+  }
+  
+  .event-block {
+    position: absolute;
+    width: calc(100% - 25px);
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 5px 10px;
+    overflow: hidden;
+    font-size: 0.85em;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .itinerary-controls {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .itinerary-controls select,
+  .itinerary-controls input[type="date"],
+  .itinerary-controls button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+  
+  .itinerary-controls select:hover,
+  .itinerary-controls input[type="date"]:hover,
+  .itinerary-controls button:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .itinerary-controls select {
+    margin-right: 15px;
+  }
+  
+  .schedule-item,
+  .save-schedule {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9rem;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .save-schedule {
+    background-color: var(--primary-color);
+  }
+  
+  .schedule-item:hover,
+  .save-schedule:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  #confirm-date {
+    margin-left: 15px;
+    padding: 8px 16px;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  #confirm-date:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  
+  .itinerary-item h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+  
+  .theme-selector {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .theme-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  #theme-blurple {
+    background: linear-gradient(45deg, #7289da, #5865f2);
+  }
+  
+  #theme-red {
+    background: linear-gradient(45deg, #ff5555, #ff3333);
+  }
+  
+  #theme-green {
+    background: linear-gradient(45deg, #43b581, #44d177);
+  }
+  
+  #theme-yellow {
+    background: linear-gradient(45deg, #faa61a, #ffcc4d);
+  }
+  
+  .theme-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background-color: var(--secondary-background);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .theme-menu p {
+    margin: 0 0 10px;
+  }
+  
+  .theme-menu button {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    transition: background-color 0.3s;
+  }
+  
+  .theme-menu button:hover {
+    background-color: var(--primary-color);
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
