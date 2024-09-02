@@ -1,4 +1,4 @@
-
+![Screenshot 2024-09-02 145115](https://github.com/user-attachments/assets/3cc9aaf1-8ed2-44e0-b2a3-63e6b5f023f6)
 # JourneyNest✈️🧳
 
 JourneyNest is an all-in-one travel planning website that simplifies the process of finding flights, exploring local events, and discovering attractions in your destination city. It provides a seamless experience for organizing your travel plans with a customizable interface and a powerful itinerary builder.
@@ -33,3 +33,4 @@ If you have any questions or feedback, please reach out to me at (smrithiramesh2
 ---
 
 Happy traveling with JourneyNest!✨
+
